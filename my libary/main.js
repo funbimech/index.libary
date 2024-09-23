@@ -36,7 +36,7 @@ function info(books) {
     const li = document.createElement('li')
     // li.style.margin = '-1px' 
     // li.style.padding= '-1px'
-     li.style.textAlign ='center'
+    //  li.style.textAlign ='center'
     console.log(i)
      li.innerHTML = books[i].author
      const titleli = document.createElement('li')
