@@ -24,19 +24,35 @@ function info(books) {
    if(author.value==='' ) {
     alert("put in a book")
   } else {
-    // ( const title1 = title.value
     const pages1 = pages.value
      const author1 = author.value   
       const title1 = title.value
      const book = new Book(author1,title1,pages1 )
      libary.push(book)
-     console.log(book)
+
     books = libary
     for(let i=0; i < books.length; i++) {
+    const p = document.createElement('p')
+      p.className = "my-para"
+
+
+ function updatestatus(confirm) {
+        if (read.checked) {
+          p.innerHTML = "read";
+        } else if (unread.checked) {
+          p.innerHTML = "not read";
+        } else {
+          p.innerHTML = "";
+        }
+        confirm = p.innerHTML;
+        base = confirm;
+      }
+      updatestatus();
+
+
+
+
     const li = document.createElement('li')
-    // li.style.margin = '-1px' 
-    // li.style.padding= '-1px'
-    //  li.style.textAlign ='center'
     console.log(i)
      li.innerHTML = books[i].author
      const titleli = document.createElement('li')
@@ -47,18 +63,7 @@ function info(books) {
      console.log(titleli)
      list.appendChild(li) 
      lists.appendChild(titleli)
-     const checkstatus = document.querySelector('input[name="ticket"]:checked')    
-    let ticket; 
-    switch((checkstatus.id))  {
-      case 'read':
-      ticket = 'read';
-      break;
-      case 'reader':
-      ticket= 'not read';
-      break;
     }   
-    const p = document.createElement('p')
-    p.textContent = `${ticket}`;
     scope.appendChild(p)
      author.value = ''
      title .value ='' 
