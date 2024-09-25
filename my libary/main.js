@@ -8,8 +8,9 @@ const list = document.getElementById("list")
  const hosts = document.querySelector(".hosts")
  const lists = document.getElementById("lists")
  const read = document.getElementById("read")
- const reader = document.getElementById("reader")
+ const unread = document.getElementById("unread")
  const scope = document.getElementById("scope")
+let base = document.createElement("base");
  const btn2 = document.querySelector(".btn2")
 
 function Book(author1,title1,pages1,status1) {
@@ -24,17 +25,12 @@ function info(books) {
    if(author.value==='' ) {
     alert("put in a book")
   } else {
-    const pages1 = pages.value
-     const author1 = author.value   
-      const title1 = title.value
-     const book = new Book(author1,title1,pages1 )
-     libary.push(book)
+        list.innerHTML = "";
+      lists.innerHTML = "";
+      h.innerHTML = "";
 
-    books = libary
-    for(let i=0; i < books.length; i++) {
-    const p = document.createElement('p')
+const p = document.createElement('p')
       p.className = "my-para"
-
 
  function updatestatus(confirm) {
         if (read.checked) {
@@ -49,15 +45,40 @@ function info(books) {
       }
       updatestatus();
 
+    const pages1 = pages.value
+     const author1 = author.value   
+      const title1 = title.value
+      const status1 = base;
+     const book = new Book(author1,title1,pages1,status1 )
+     libary.push(book)
 
+    books = libary
 
-
+     function deleteinfo(books,index)  {
+          btn2.addEventListener("click",() => {
+           if(Array.isArray(books) && index >= 0 && index < books.length){
+             books.splice(index,1)
+            } else {
+              console.log("invalid index")
+           }
+           list.innerHTML = "";
+           lists.innerHTML = "";
+           scope.innerHTML = "";
+           h.innerHTML = "";
+        })
+            return books;
+          
+           } 
+           deleteinfo(books,0)
+    for(let i=0; i < books.length; i++) {
     const li = document.createElement('li')
-    console.log(i)
+    li.className = "my-author"
      li.innerHTML = books[i].author
      const titleli = document.createElement('li')
+     titleli.className = "my-title"
      titleli.innerHTML = books[i].title
      const pageli = document.createElement('li')
+        pageli.className = "my-page"
      pageli.innerHTML = books[i].pages
      h.appendChild(pageli)
      console.log(titleli)
@@ -71,11 +92,5 @@ function info(books) {
      console.log(books)
      }
     
-  }}
-  )
-  btn2.addEventListener("click",() => {
-    lcontainer = ''
-  })
-};
-// const store = new book('author')
+  })}
 info()
