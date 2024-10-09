@@ -4,7 +4,7 @@ body {
   padding: 0;
 }
 .container {
-  height: 100vh;
+  height: 100%;
    background-color: blue; 
   width: 100vw;
 }
@@ -52,8 +52,20 @@ body {
   justify-content: space-around;
   height: 4vh;
     }
-.btn2 {
+.delhost {
   height: 5vh;
+  background-color: whitesmoke;
+}
+
+.boxs {
+  height: 25vh;
+}
+.delete {
+  height: 55vh;
+  border: 5px solid red;
+}
+.my-delete {
+list-style: none;
 }
 .my-para {
   margin-left: -18px;
